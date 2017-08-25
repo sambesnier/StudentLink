@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configuration>
+<Configuration status="WARN"  monitorInterval="60" > 
+
+
+
+	<!-- propriété a ajouter -->
+	<Properties>
+		<Property name="folderName_1">G:\log\xextranet</Property>
+		<Property name="fileName_1">app.log</Property>
+		<Property name="filePath_1">${folderName_1}\${fileName_1}</Property>
+		<Property name="filePattern_1"> ${folderName_1}\$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.zip</Property>
+		<Property name="pattern_1">%d %p %c{2} [%C{5}] %X{id_request} %m%n</Property>
+		<property name="level">INFO</property>
+	</Properties>
+
+	<!-- ***************************************************************************************************** -->
+	<!-- ***************************************************************************************************** -->
+
+	<Appenders>
+
+
+		<!-- ***************************************************************************************************** -->
+		
+	    <RollingRandomAccessFile name="RollingRandomAccessFile" fileName="${filePath_1}" filePattern="${filePattern_1}"> 
+	    	<PatternLayout>
+	        	<Pattern>${pattern_1}</Pattern>  
+	      	</PatternLayout>
+	      	<Policies>
+	        	<TimeBasedTriggeringPolicy />
+	        	<SizeBasedTriggeringPolicy size="10000KB"/> 
+	      	</Policies>
+	       	<DefaultRolloverStrategy max="20"/>
+	    </RollingRandomAccessFile>
+	    
+	    <!-- ***************************************************************************************************** -->
+	    
+	    <Console name="STDOUT" target="SYSTEM_OUT">
+	      <PatternLayout pattern="${pattern_1}"/>
+	    </Console>
+	    
+	    <!-- ***************************************************************************************************** -->
+        
+  	</Appenders>
+
+	<!-- ***************************************************************************************************** -->
+	<!-- ***************************************************************************************************** -->
+
+	<Loggers>
+	
+		<Logger name="CDILogger" level="${level}">
+	      <AppenderRef ref="STDOUT"/>
+	      <AppenderRef ref="RollingRandomAccessFile"/> 
+	    </Logger>
+	    
+	</Loggers>
+	
+	<!-- ***************************************************************************************************** -->
+	<!-- ***************************************************************************************************** -->
+	
+</Configuration>

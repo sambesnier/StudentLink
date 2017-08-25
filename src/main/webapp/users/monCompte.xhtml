@@ -1,0 +1,61 @@
+<ui:composition xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="../partials/template.xhtml">
+
+
+	<ui:define name="header">
+	<ui:include src="#{accueilController.user == null ? '../partials/header.xhtml' : '../partials/header2.xhtml'}"></ui:include>
+	</ui:define>
+
+	<ui:define name="content">
+
+		<div id="connexion-container">
+
+
+			<b:form>
+
+				<b:inputText placeholder= "Username" id="username"
+					value="#{modificationController.login}" ajax="true"
+					autocomplete="false" update="@(.message)">
+					<f:facet name="prepend">
+						<b:iconAwesome name="user" />
+					</f:facet>
+				</b:inputText>
+
+				<b:inputSecret placeholder="Mot de passe" id="password"
+					value="#{modificationController.password}" ajax="true"
+					autocomplete="false" update="@(.message)">
+					<f:facet name="prepend">
+						<b:iconAwesome name="lock" />
+					</f:facet>
+				</b:inputSecret>
+				
+				<b:inputSecret placeholder="Nouveau Mot de passe" id="newpass1"
+					value="#{modificationController.newpass1}" ajax="true"
+					autocomplete="false" update="@(.message)">
+					<f:facet name="prepend">
+						<b:iconAwesome name="lock" />
+					</f:facet>
+				</b:inputSecret>
+				
+				<b:inputSecret placeholder="Confirmation du Mot de passe" id="newpass2"
+					value="#{modificationController.newpass2}" ajax="true"
+					autocomplete="false" update="@(.message)">
+					<f:facet name="prepend">
+						<b:iconAwesome name="lock" />
+					</f:facet>
+				</b:inputSecret>
+
+				<b:commandButton value="Soumettre" onclick="ajax:modificationController.soumettre()" look="primary" 
+									style="width:100%" />
+				
+				
+
+			</b:form>
+		</div>
+
+	</ui:define>
+
+</ui:composition>

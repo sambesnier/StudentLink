@@ -1,0 +1,31 @@
+<ui:composition 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui">
+<h:head>
+	<title>Student Link</title>
+	<h:outputStylesheet library="css" name="style.css" />
+	<link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet"/>
+</h:head>
+
+<div class="header">
+<div class="header-container">
+
+	<a href="../users/accueil.xhtml"><img src="../resources/images/logo.png"/></a>
+	<b:form>
+		<b:commandButton class="loginBtn" onclick="ajax:logoutController.logout()" value="Se déconnecter"/>
+	</b:form>
+	
+	
+    <b:navbarLinks>
+        <b:navLink value="Lancer un vote" href="#"></b:navLink>
+        <b:navLink value="Les votes en cours" href="#"></b:navLink>
+        <b:navLink value="Mon compte" href="StudentLink/../monCompte.xhtml"></b:navLink>
+    </b:navbarLinks>
+    
+	
+	
+</div>	
+</div>
+
+</ui:composition>

@@ -1,0 +1,49 @@
+<ui:composition 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="partials/template.xhtml">
+	<ui:define name="header">
+		<ui:include src="#{accueilController.user == null ? 'partials/header.xhtml' : 'partials/header2.xhtml'}"></ui:include>
+	</ui:define>
+	<ui:define name="content">
+	
+		<div id="bg">
+		
+		</div>
+		
+		<h1 class="title">Ne perdez plus le fil, Gardez un lien avec votre formateur</h1>
+	
+		<div id="connexion-container">
+			
+			<span id="title-form">Créer un compte</span>
+		
+			<b:form>
+			      
+				<b:inputText placeholder="Nom d'utilisateur" id="username" value="#{inscriptionController.pseudo}" ajax="true" autocomplete="false" update="@(.message)">
+					<f:facet name="prepend">
+		              <b:iconAwesome name="user" />
+		            </f:facet>
+				</b:inputText>
+				
+				<b:inputText placeholder="Adresse mail"  value="#{inscriptionController.email}" ajax="true" autocomplete="false" update="@(.message)">
+					<f:facet name="prepend">
+		              <b:iconAwesome name="envelope" />
+		            </f:facet>
+				</b:inputText>
+				      
+				<b:inputSecret placeholder="Mot de passe" id="password" value="#{inscriptionController.password}" ajax="true" autocomplete="false" update="@(.message)">
+					<f:facet name="prepend">
+		              <b:iconAwesome name="lock" />
+		            </f:facet>
+				</b:inputSecret>
+				      
+				<b:commandButton value="Inscription" onclick="ajax:inscriptionController.subscribe()" look="primary" style="width:100%" />
+			      
+			</b:form>
+		</div>
+
+    </ui:define>
+
+</ui:composition>

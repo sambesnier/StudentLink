@@ -1,0 +1,42 @@
+<ui:composition 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="../partials/template.xhtml">
+
+	<ui:define name="header">
+		<ui:include src="#{accueilController.user == null ? '../partials/header.xhtml' : '../partials/header2.xhtml'}"></ui:include>
+	</ui:define>
+
+	<ui:define name="content">
+		<div class="container">
+			
+				<div class="block-action">
+				<a class="a" href="#">
+					<div class="btn-action">
+						<i class="fa fa-list-alt" aria-hidden="true"></i>
+						<span class="title-action">Proposer un vote</span>
+					</div>
+				</a>
+				<a class="a" href="#">	
+					<div class="btn-action">
+						<i class="fa fa-list" aria-hidden="true"></i>
+						<span class="title-action">Voir la liste des votes</span>
+					</div>
+				</a>	
+				<a class="a" href="StudentLink/../monCompte.xhtml">
+					<div class="btn-action">
+						<i class="fa fa-user" aria-hidden="true"></i>
+						<span class="title-action">Mon compte</span>
+					</div>
+				</a>
+				</div>
+				
+		</div>
+	
+<!-- 		Code à placer ici		 -->
+
+    </ui:define>
+
+</ui:composition>
