@@ -6,17 +6,19 @@
 
 
 	<ui:define name="header">
-	<ui:include src="#{accueilController.user == null ? '../partials/header.xhtml' : '../partials/header2.xhtml'}"></ui:include>
+		<ui:include
+			src="#{accueilController.user == null ? '../partials/header.xhtml' : '../partials/header2.xhtml'}"></ui:include>
 	</ui:define>
 
 	<ui:define name="content">
 
 		<div id="connexion-container">
 
+			<span id="title-form">Modifiez votre mot de passe</span>
 
-			<b:form>
+			<b:form id="loginForm">
 
-				<b:inputText placeholder= "Username" id="username"
+				<b:inputText placeholder="Username" id="username"
 					value="#{modificationController.login}" ajax="true"
 					autocomplete="false" update="@(.message)">
 					<f:facet name="prepend">
@@ -31,7 +33,9 @@
 						<b:iconAwesome name="lock" />
 					</f:facet>
 				</b:inputSecret>
-				
+
+				<b:message for="password" line-break-tag="" />
+
 				<b:inputSecret placeholder="Nouveau Mot de passe" id="newpass1"
 					value="#{modificationController.newpass1}" ajax="true"
 					autocomplete="false" update="@(.message)">
@@ -39,19 +43,20 @@
 						<b:iconAwesome name="lock" />
 					</f:facet>
 				</b:inputSecret>
-				
-				<b:inputSecret placeholder="Confirmation du Mot de passe" id="newpass2"
-					value="#{modificationController.newpass2}" ajax="true"
-					autocomplete="false" update="@(.message)">
+
+				<b:inputSecret placeholder="Confirmation du Mot de passe"
+					id="newpass2" value="#{modificationController.newpass2}"
+					ajax="true" autocomplete="false" update="@(.message)">
 					<f:facet name="prepend">
 						<b:iconAwesome name="lock" />
 					</f:facet>
 				</b:inputSecret>
 
-				<b:commandButton value="Soumettre" onclick="ajax:modificationController.soumettre()" look="primary" 
-									style="width:100%" />
-				
-				
+				<b:commandButton value="Soumettre"
+					onclick="ajax:modificationController.soumettre()" look="primary"
+					style="width:100%" />
+
+
 
 			</b:form>
 		</div>

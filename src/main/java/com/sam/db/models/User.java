@@ -41,6 +41,9 @@ public class User implements Serializable {
 	@Column
 	String firstName;
 	
+	@Column
+	String role;
+	
 
 
 	/**
@@ -125,6 +128,20 @@ public class User implements Serializable {
 	 */
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+	}
+
+	/**
+	 * @return the role
+	 */
+	public String getRole() {
+		return role;
+	}
+
+	/**
+	 * @param role the role to set
+	 */
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 

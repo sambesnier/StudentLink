@@ -37,7 +37,6 @@ public class InscriptionController {
 		
 		UserCrud uc = new UserCrud();
 		User user = new User();
-		System.out.println(email + password + pseudo);
 		user.setEmail(email);
 		user.setPassword(password);
 		user.setUsername(pseudo);
@@ -52,7 +51,7 @@ public class InscriptionController {
     	logger.info("Connexion = OK ");
     	
     	try {
-			FacesContext.getCurrentInstance().getExternalContext().redirect("/users/accueil.xhtml");
+			FacesContext.getCurrentInstance().getExternalContext().redirect("users/accueil.xhtml");
 		} catch (IOException e) {
 			logger.catching(e);
 		}

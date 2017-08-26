@@ -1,0 +1,98 @@
+<ui:composition xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="../partials/template.xhtml">
+
+	<ui:define name="header">
+		<ui:include src="../partials/header2.xhtml"></ui:include>
+
+<!-- 		<script type="text/javascript"> -->
+// 			var host = "ws://localhost:8080/StudentLink/vote";
+// 	      	var wSocket = new WebSocket(host);
+// 	      	var browserSupport = ("WebSocket" in window) ? true : false;
+	      	
+// 	      	function initializeReception()
+// 	        {
+// 	          if (browserSupport)
+// 	          {
+// 	            wSocket.onopen = function()
+// 	            {
+// 	              //alert(" Web Socket is connected, sending data");
+// 	              wSocket.send("ping");
+// 	            };
+// 	          }
+// 	          else
+// 	          {
+// 	            // The browser doesn't support WebSocket
+// 	            alert("WebSocket is NOT supported by your Browser!");
+// 	          }
+// 	        }
+	        
+// 	        // called when a message is received
+// 	        wSocket.onmessage = function(event)
+// 	        {
+// 	          var received_msg = event.data;
+// 	          document.getElementById('headerForm:serverMsg').value = received_msg;
+// 	        };
+	        
+// 	        // called when socket closes
+// 	        wSocket.onclose = function()
+// 	        {
+// 	          // websocket is closed.
+// 	          //alert("Connection is closed...");
+// 	        };
+<!-- 		</script> -->
+
+	</ui:define>
+
+	<ui:define name="content">
+
+		<div id="connexion-container">
+
+			<span id="title-form">Créez un vote</span>
+
+			<b:form id="loginForm">
+
+				<b:inputText placeholder="Votre question" id="question"
+					value="#{modificationController.login}" ajax="true"
+					autocomplete="false" update="@(.message)">
+					<f:facet name="prepend">
+						<b:iconAwesome name="question" />
+					</f:facet>
+				</b:inputText>
+
+
+
+				<b:commandButton value="Soumettre"
+					onclick="ajax:modificationController.soumettre()" look="primary"
+					style="width:100%" />
+
+
+
+			</b:form>
+		</div>
+		<div class="container">
+			<div class="block-action">
+				<a class="a">
+					<div class="btn-action">
+						<i class="fa fa-smile-o" aria-hidden="true"></i> <span
+							class="title-action">Oui</span>
+					</div>
+				</a> <a class="a">
+					<div class="btn-action">
+						<i class="fa fa-frown-o" aria-hidden="true"></i> <span
+							class="title-action">Non</span>
+					</div>
+				</a> <a class="a">
+					<div class="btn-action">
+						<i class="fa fa-question" aria-hidden="true"></i> <span
+							class="title-action">C'est flou</span>
+					</div>
+				</a>
+			</div>
+		</div>
+
+	</ui:define>
+
+</ui:composition>

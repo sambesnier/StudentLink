@@ -18,7 +18,7 @@ public class UserCrud implements IUserCrud {
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 
-		
+		user.setRole("user");
 		// 4 : Persistance Objet/Relationnel : création d'un enregistrement en
 		// base
 		em.persist(user);

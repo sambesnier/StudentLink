@@ -1,5 +1,6 @@
 package com.sam.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -74,9 +75,6 @@ public boolean Confirm(){
 	if (newpass1.equals(newpass2) && (!newpass1.isEmpty())) {
 		return true;
 	}
-	else{
-		System.out.println("it's not working");
-	}
 	return false;
 }
 
@@ -86,7 +84,12 @@ public void soumettre() {
 	if ((b == true) && (a == true)) {
 		user.setPassword(newpass1);
 		myContext.getRepository().update((Object)user);
-		System.out.println("done");
+		try {
+			FacesContext.getCurrentInstance().getExternalContext().redirect("accueil.xhtml");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	else {
 		System.out.println("or not");
