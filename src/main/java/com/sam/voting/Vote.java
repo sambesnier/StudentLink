@@ -12,10 +12,13 @@ public class Vote {
 	
 	int blur;
 	
+	int votants;
+	
 	public Vote(String question, String nom) {
 		setYes(0);
 		setNo(0);
 		setBlur(0);
+		setVotants(0);
 		setQuestion(question);
 		setNom(nom);
 	}
@@ -88,6 +91,20 @@ public class Vote {
 	 */
 	public void setBlur(int blur) {
 		this.blur = blur;
+	}
+
+	/**
+	 * @return the votants
+	 */
+	public int getVotants() {
+		return votants;
+	}
+
+	/**
+	 * @param votants the votants to set
+	 */
+	public void setVotants(int votants) {
+		this.votants = votants;
 	}
 	
 	

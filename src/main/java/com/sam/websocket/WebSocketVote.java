@@ -29,6 +29,7 @@ public class WebSocketVote {
 			JSONObject obj = new JSONObject();
 			obj.put("header", 1);
 			obj.put("question", VoteContext.getContext().getVoteByName(nom).getQuestion());
+			obj.put("votants", VoteContext.getContext().getVoteByName(nom).getVotants());
 			
 			session.getBasicRemote().sendText(JSONValue.toJSONString(obj));
 		} catch (IOException e) {

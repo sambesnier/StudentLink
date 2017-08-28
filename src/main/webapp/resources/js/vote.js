@@ -4,7 +4,8 @@ function connect() {
 	wsocket.onmessage = onMessage;
 }
 function onMessage(evt) {
-	document.getElementById("title-form").innerHTML = evt.data;
+	var resp = JSON.parse(evt.data);
+	traitement(resp);
 }
 function $_GET(param) {
 	var vars = {};
@@ -31,4 +32,13 @@ function voteNo() {
 
 function voteBlur() {
 	
+}
+
+function traitement(json) {
+	switch(json.header) {
+	case 1:
+		document.getElementById("title-form").innerHTML = json.question;
+		break;
+		
+	}
 }
