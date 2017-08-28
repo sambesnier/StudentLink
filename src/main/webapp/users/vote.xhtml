@@ -6,35 +6,33 @@
 
 	<ui:define name="header">
 		<ui:include src="../partials/header2.xhtml"></ui:include>
-		<script type="text/javascript">
-			
-		</script>
+		<script src="../resources/js/vote.js"></script>
 	</ui:define>
 
 	<ui:define name="content">
 
 		<div id="connexion-container">
-		
+
 			<span id="title-form">La question</span>
 
 		</div>
 		<div class="container">
 			<div class="block-action">
-				<a class="a">
+				<a class="a" onclick="voteYes()">
 					<div class="btn-action">
-						<i class="fa fa-smile-o" aria-hidden="true"></i> <span
+						<i class="fa fa-smile-o yes" aria-hidden="true"></i> <span
 							class="title-action">Oui</span>
 					</div>
 				</a> 
-				<a class="a">
+				<a class="a" onclick="voteNo()">
 					<div class="btn-action">
-						<i class="fa fa-frown-o" aria-hidden="true"></i> <span
+						<i class="fa fa-frown-o no" aria-hidden="true"></i> <span
 							class="title-action">Non</span>
 					</div>
-				</a>
-				<a class="a">
+				</a> 
+				<a class="a" onclick="voteBlur()">
 					<div class="btn-action">
-						<i class="fa fa-question" aria-hidden="true"></i> <span
+						<i class="fa fa-question blur" aria-hidden="true"></i> <span
 							class="title-action">C'est flou</span>
 					</div>
 				</a>

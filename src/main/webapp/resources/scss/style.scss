@@ -67,9 +67,17 @@ body.body {
 					    text-align: center;
 					    font-size: 100px;
 					    display: block;
-					    margin: 0 auto;
-					    color: #16a085;
+					    margin: 0 auto;					    
 					    transition: all 100ms ease-out;
+					}
+					.yes {
+						color: #16a085;
+					}
+					.no {
+						color: #e74c3c;
+					}
+					.blur {
+						color: #e67e22;
 					}
 					.title-action {
 						line-height: 50px;

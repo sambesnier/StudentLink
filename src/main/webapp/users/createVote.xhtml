@@ -6,56 +6,18 @@
 
 	<ui:define name="header">
 		<ui:include src="../partials/header2.xhtml"></ui:include>
-
-<!-- 		<script type="text/javascript"> -->
-// 			var host = "ws://localhost:8080/StudentLink/vote";
-// 	      	var wSocket = new WebSocket(host);
-// 	      	var browserSupport = ("WebSocket" in window) ? true : false;
-	      	
-// 	      	function initializeReception()
-// 	        {
-// 	          if (browserSupport)
-// 	          {
-// 	            wSocket.onopen = function()
-// 	            {
-// 	              //alert(" Web Socket is connected, sending data");
-// 	              wSocket.send("ping");
-// 	            };
-// 	          }
-// 	          else
-// 	          {
-// 	            // The browser doesn't support WebSocket
-// 	            alert("WebSocket is NOT supported by your Browser!");
-// 	          }
-// 	        }
-	        
-// 	        // called when a message is received
-// 	        wSocket.onmessage = function(event)
-// 	        {
-// 	          var received_msg = event.data;
-// 	          document.getElementById('headerForm:serverMsg').value = received_msg;
-// 	        };
-	        
-// 	        // called when socket closes
-// 	        wSocket.onclose = function()
-// 	        {
-// 	          // websocket is closed.
-// 	          //alert("Connection is closed...");
-// 	        };
-<!-- 		</script> -->
-
 	</ui:define>
 
 	<ui:define name="content">
 
 		<div id="connexion-container">
 
-			<span id="title-form">Créez un vote</span>
+			<span id="title-form">Créez une question</span>
 
 			<b:form id="loginForm">
 
 				<b:inputText placeholder="Votre question" id="question"
-					value="#{modificationController.login}" ajax="true"
+					value="#{newVoteController.question}" ajax="true"
 					autocomplete="false" update="@(.message)">
 					<f:facet name="prepend">
 						<b:iconAwesome name="question" />
@@ -65,33 +27,14 @@
 
 
 				<b:commandButton value="Soumettre"
-					onclick="ajax:modificationController.soumettre()" look="primary"
+					onclick="ajax:newVoteController.submit()" look="primary"
 					style="width:100%" />
 
 
 
 			</b:form>
 		</div>
-		<div class="container">
-			<div class="block-action">
-				<a class="a">
-					<div class="btn-action">
-						<i class="fa fa-smile-o" aria-hidden="true"></i> <span
-							class="title-action">Oui</span>
-					</div>
-				</a> <a class="a">
-					<div class="btn-action">
-						<i class="fa fa-frown-o" aria-hidden="true"></i> <span
-							class="title-action">Non</span>
-					</div>
-				</a> <a class="a">
-					<div class="btn-action">
-						<i class="fa fa-question" aria-hidden="true"></i> <span
-							class="title-action">C'est flou</span>
-					</div>
-				</a>
-			</div>
-		</div>
+		
 
 	</ui:define>
 
