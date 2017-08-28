@@ -36,6 +36,7 @@ public class NewVoteController {
     	HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
     	User user = (User)session.getAttribute("user");
 		Vote vote = new Vote(question, user.getUsername());
+		VoteContext.getContext().removeVoteDoublons(user.getUsername());
 		VoteContext.getContext().getVotes().add(vote);
 		try {
 			FacesContext.getCurrentInstance().getExternalContext().redirect("../users/vote.xhtml?nom=" + user.getUsername());

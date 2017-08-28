@@ -1,6 +1,6 @@
 var wsocket;
 function connect() {
-	wsocket = new WebSocket("ws://localhost:8080/StudentLink/vote/"+$_GET("nom"));
+	wsocket = new WebSocket("ws://192.168.1.97:8080/StudentLink/vote/"+$_GET("nom"));
 	wsocket.onmessage = onMessage;
 }
 function onMessage(evt) {
@@ -21,24 +21,3 @@ function $_GET(param) {
 	return vars;
 }
 window.addEventListener("load", connect, false);
-
-function voteYes() {
-	
-}
-
-function voteNo() {
-	
-}
-
-function voteBlur() {
-	
-}
-
-function traitement(json) {
-	switch(json.header) {
-	case 1:
-		document.getElementById("title-form").innerHTML = json.question;
-		break;
-		
-	}
-}

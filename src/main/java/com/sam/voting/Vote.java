@@ -1,5 +1,7 @@
 package com.sam.voting;
 
+import java.util.HashSet;
+
 public class Vote {
 
 	String question;
@@ -12,13 +14,16 @@ public class Vote {
 	
 	int blur;
 	
-	int votants;
+	HashSet<String> votants;
+	
+	HashSet<String> hasVoted;
 	
 	public Vote(String question, String nom) {
+		votants = new HashSet<String>();
+		hasVoted = new HashSet<String>();
 		setYes(0);
 		setNo(0);
 		setBlur(0);
-		setVotants(0);
 		setQuestion(question);
 		setNom(nom);
 	}
@@ -96,16 +101,44 @@ public class Vote {
 	/**
 	 * @return the votants
 	 */
-	public int getVotants() {
+	public HashSet<String> getVotants() {
 		return votants;
+	}
+	
+	/**
+	 * @return the hasVoted
+	 */
+	public HashSet<String> getHasVoted() {
+		return hasVoted;
+	}
+
+	/**
+	 * @param hasVoted the hasVoted to set
+	 */
+	public void setHasVoted(HashSet<String> hasVoted) {
+		this.hasVoted = hasVoted;
 	}
 
 	/**
 	 * @param votants the votants to set
 	 */
-	public void setVotants(int votants) {
+	public void setVotants(HashSet<String> votants) {
 		this.votants = votants;
 	}
 	
+	public void increaseYes(String nom) {
+		if (hasVoted.add(nom))
+			this.yes++;
+	}
 	
+	public void increaseNo(String nom) {
+		if (hasVoted.add(nom))
+			this.no++;
+	}
+	
+	public void increaseBlur(String nom) {
+		if (hasVoted.add(nom))
+			this.blur++;
+	}
+
 }

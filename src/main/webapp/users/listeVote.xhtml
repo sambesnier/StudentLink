@@ -1,0 +1,24 @@
+<ui:composition 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="../partials/template.xhtml">
+
+	<ui:define name="header">
+		<ui:include src="../partials/header2.xhtml"></ui:include>
+	</ui:define>
+
+	<ui:define name="content">
+	
+		<div id="connexion-container">
+			<ul id="listevote">
+				<ui:repeat value="#{listeVoteController.votes}" var="vote">
+					<a href="vote.xhtml?nom=#{vote.nom}"><li>#{vote.nom} : #{vote.question}</li></a>
+				</ui:repeat>
+			</ul>
+		</div>
+
+    </ui:define>
+
+</ui:composition>

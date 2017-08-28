@@ -44,5 +44,13 @@ public class VoteContext {
 		}
 		return null;
 	}
+	
+	public void removeVoteDoublons(String nom) {
+		for (int i = 0; i < votes.size(); i++) {
+			if (votes.get(i).getNom().equals(nom)) {
+				votes.remove(i);
+			}
+		}
+	}
 
 }

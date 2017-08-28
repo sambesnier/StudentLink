@@ -7,6 +7,52 @@
 	<ui:define name="header">
 		<ui:include src="../partials/header2.xhtml"></ui:include>
 		<script src="../resources/js/vote.js"></script>
+		<script>
+		function traitement(json) {
+			switch(json.header) {
+			case 1:
+				document.getElementById("title-form").innerHTML = json.question;
+				var obj = {
+						"header": 1,
+						"user": "#{accueilController.user.username}"
+				};
+				wsocket.send(JSON.stringify(obj));
+				break;
+			case 2:
+				document.getElementById("votants").innerHTML = json.votants;
+				break;
+			case 3:
+				document.getElementById("votants").innerHTML = json.votants;
+				document.getElementById("yes").innerHTML = json.yes;
+				document.getElementById("no").innerHTML = json.no;
+				document.getElementById("blur").innerHTML = json.blur;
+				break;
+			}
+		}
+		function voteYes() {
+			var obj = {
+					"header": 10,
+					"user": "#{accueilController.user.username}"
+			};
+			wsocket.send(JSON.stringify(obj));
+		}
+
+		function voteNo() {
+			var obj = {
+					"header": 20,
+					"user": "#{accueilController.user.username}"
+			};
+			wsocket.send(JSON.stringify(obj));
+		}
+
+		function voteBlur() {
+			var obj = {
+					"header": 30,
+					"user": "#{accueilController.user.username}"
+			};
+			wsocket.send(JSON.stringify(obj));
+		}
+		</script>
 	</ui:define>
 
 	<ui:define name="content">
@@ -14,6 +60,13 @@
 		<div id="connexion-container">
 
 			<span id="title-form">La question</span>
+			
+			<div id="stats">
+				<p>Nombre de votants : <span id="votants"></span></p>
+				<p>Oui : <span id="yes">0</span></p>
+				<p>Non : <span id="no">0</span></p>
+				<p>Flou : <span id="blur">0</span></p>
+			</div>
 
 		</div>
 		<div class="container">
